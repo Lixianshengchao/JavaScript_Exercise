@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="GB2312">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*var box=new Object();
+			box.name='Lee';
+			alert(box.name);*/
+			
+			/*var box='Lee';
+			box.age=21;
+			alert(box.age);*/
+			
+			/*var box={name:'Lee'};
+			var box2=box;
+			box2.name=box2.name+'1';
+			alert(box.name);
+			alert(box2.name);
+			*/
+			
+			//传递参数
+			/*JavaScript 中所有函数的参数都是按值传递的，
+			言下之意就是说，参数不会按引用传 递，
+			虽然变量有基本类型和引用类型之分。*/
+			
+		/*	function box(num){
+				num+=10;
+				return num;
+			}
+			
+			var num=50;
+			var result=box(num);
+			alert(result);
+			alert(num);*/
+			/*
+			function box(obj){
+				alert(p.name);
+				obj.name='Lee';
+			}
+			
+			var p=new Object();
+			p.name='Brozer';
+			
+			box(p);
+			alert(p.name);
+			*/
+		/*	
+			function box(obj){
+				obj.name='Lee';
+				var obj=new Object();
+				obj.name='Mr';
+			}
+			var p=new Object(); 
+			p.name='Brozer';
+			box(p);
+			alert(p.name);*/
+			/*
+			虽然 typeof 运算符在检查基本数据类型的时候非常好用，
+			但检测引用类型的时候，它就 不是那么好用了。
+			通常，我们并不想知道它是不是对象，而是想知道它到底是什么类型的对 象。
+			因为数组也是 object，null 也是 Object 等等。
+			这时我们应该采用 instanceof 运算符来查看。
+			*/
+			/*var box={name:'Lee'};
+			alert(typeof box);
+			alert(box instanceof Object);
+			alert(box instanceof String);*/
+			
+			/*var box=[1,2,3];
+			alert(box instanceof Array);
+			
+			var box2={};
+			alert(box2 instanceof Object);
+			
+			var box3=/g/;
+			alert(box3 instanceof RegExp);
+			
+			var box4=new String('Lee');
+			alert(box4 instanceof String);
+			
+			var box5='Brozer';
+			alert(box5 instanceof String);  //当使用 instanceof 检查基本类型的值时，它会返回 false。
+
+			*/
+			
+			/*var box='blue';
+			function setBox(){
+				alert(box);
+			}
+			setBox();
+			*/
+			
+			/*var box='blue';
+			function setBox(){
+				alert(window.box);
+			}
+			setBox();
+			*/
+			
+		/*	var box='blue';
+			function setBox(){
+				var box='red';
+				alert(box);
+			}
+			setBox();
+			alert(box);*/
+			
+			/*var box='blue';
+			function setBox(box){
+				alert(box);
+			}
+			setBox('red');
+			alert(box);
+			*/
+			
+			var box='blue';
+			function setBox(){
+				function setColor(){
+					var b='orange';
+					alert(box);
+					alert(b);
+				}
+				setColor();
+			}
+			setBox();
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="GB2312">
+		<title></title>
+	</head>
+	<body>
+		<script>
+		//使用new运算符创建Object对象
+		/*	var box=new Object();
+			box.name='brozer';
+			box.age=28;
+			alert(box);
+			alert(box.name);
+			*/
+			
+		
+		
+		//使用字面量表示法
+		/*	var box={
+				name:'brozer',
+				age:22,
+				toString:function(){
+					return "my name is "+name+",my age is "+box.age;
+				}
+			};
+			
+			alert(box);*/
+			
+			/*var box={};
+			box.name='brozer';
+			box.age=22;
+			alert(box.name+", "+box['age']);//两种属性输出方式
+			*/
+			
+			/*var box={
+				name:'brozer',
+				run:function(){   //给对象创建方法
+					return '运行';
+				}
+			}
+			
+			delete box.name;// 删除属性
+			alert(box.name);
+			alert(box.run());*/
+			
+/*			function box(obj){
+				if(obj.name!=undefined)alert(obj.name);
+				if(obj.age!=undefined)alert(obj.age);
+				if(obj.marray==undefined)alert('brozer is single');
+			}
+			//使用字面量向函数传递可选参数
+			box({
+				name:'brozer',
+				age:28
+			
+			});*/
+//			Array类型
+//				除了Object 类型之外，Array 类型是ECMAScript 最常用的类型。而且ECMAScript 中
+//				的Array 类型和其他语言中的数组有着很大的区别。虽然数组都是有序排列，但ECMAScript
+//				中的数组每个元素可以保存任何类型。ECMAScript 中数组的大小也是可以调整的。
+//				创建Array 类型有两种方式：第一种是new 运算符，第二种是字面量。
+			
+			
+			//使用new关键字创建数组
+			/*
+			var box=new Array();
+			var box=new Array(10); 
+			var box=new Array('brozer',28,'学生','厦门');
+			alert(box);
+			*/
+			
+			
+			//使用字面量方式创建数组
+			/*var box=[];
+			var box=['brozer',22,'学生','厦门'];
+			box[box.length]='hello world';
+			alert(box);
+			*/
+			
+			
+//			对象或数组都具有toLocaleString()、toString()和valueOf()方法。其中toString()和valueOf()
+//			无论重写了谁，都会返回相同的值。数组会讲每个值进行字符串形式的拼接，以逗号隔开。
+			
+			/*var box=[
+				{
+					name:'brozer',
+					age:22,
+					run:function(){
+						return 'runing';
+					}
+				},
+				['李彦宏','比尔盖茨','马云'],
+				'厦门',
+				11+11,
+				new Array(1,2,3)
+			
+			];
+			 //默认情况下，数组字符串都会以逗号隔开。如果使用join()方法，
+			 //则可以使用不同的分隔符来构建这个字符串。
+			alert(box.join('|'));
+			*/
+			
+			
+			//JavaScript数组提供数据结构操作方法
+			//pop()表示在数组末尾移除最后一个元素
+			//push()表示可以接收任意数量的参数，把它们逐个添加到数组的末尾
+			//shift()表示从数组前端移除一个元素
+			//unshift()表示为数组的前端添加一个元素
+			//reverse()表示逆向排序
+			//sort()表示重排序，注意：sort()方法在默认排序在数字排序和字符串上有些问题。因为数字
+			//排序和数字字符串排序的算法是一样的。我们必须修改这一特征。解决方案就是在sort(参数)方法传递一个函数参数
+			
+			/*var box=['李彦宏',35,'百度Boss'];
+			alert(box.push('北京'));//数组末尾添加一个元素，并且返回长度
+			alert(box);
+			alert(typeof box.pop());//返回被删的元素
+			alert(box);*/
+			
+		//	var box=['李彦宏',35,'百度Boss'];
+			/*alert(box.shift());
+			alert(box);*/
+			
+			/*alert(box.unshift('百度公司','北京'));//数组开头添加两个元素
+			
+			*/
+			
+		//	alert(box.reverse());
+			
+		/*	function compare(value1,value2){
+				if(value1<value2){
+					return -1;
+				}else if(value1>value2){
+					return 1;
+				}else{
+					return 0;
+				}
+			}
+			
+			
+			var box=[4,1,7,3,9,2,'88'];
+			alert(box.sort(compare));
+			alert(box.reverse());
+			
+		*/
+//		JavaScript 在数组中的元素提供了很多方法。concat()方法可以基于当
+//		前数组创建一个新数组。slice()方法可以基于当前数组获取指定区域元素并创建一个新数组。
+//		splice()主要用途是向数组的中部插入元素
+		/*var box=['brozer',28,'厦门'];
+		var box2=box.concat('软件设计师');
+		alert(box2);
+		alert(box);*/
+		
+	/*	var box=['brozer',28,'厦门','厦门','厦门','厦门','厦门'];
+		var box2=box.slice(2,3);//获得数组第二个元素到小于第三个元素
+		alert(box2);
+		alert(box);//返回当前数组
+		
+		*/
+		
+		/*var box=['brozer',28,'厦门','厦门','厦门','厦门','厦门'];
+		var box2=box.splice(1,2);//截取数组第2个元素后的2个元素
+		alert(box2);  
+		alert(box);
+		*/
+		
+		var box=['brozer',22,'厦门'];
+		var box2=box.splice(1,0,'软件设计师','厦门');
+		alert(box2);
+		alert(box);
+
+		
+		
+		</script>
+		
+	</body>
+</html>
