@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="GB2312">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//Global对象
+//			1.URI 编码方法 URI 编码可以对链接进行编码，以便发送给浏览器。
+//			它们采用特殊的 UTF-8 编码替换 所有无效字符，从而让浏览器能够接受和理解。 
+//			encodeURI()不会对本身属于 URI 的特殊字符进行编码，
+//			例如冒号、正斜杠、问号和# 号；
+//			而 encodeURIComponent()则会对它发现的任何非标准字符进行编码
+			/*var box='//Lee李';
+			alert(encodeURI(box)); 
+			alert(encodeURIComponent(box));
+			*/
+//			使用了 URI 编码过后，还可以进行解码，
+//			通过 decodeURI()和 decodeURIComponent() 来进行解码
+			
+			/*var box='//Lee李';
+			alert(decodeURIComponent(encodeURIComponent(box)));
+*/
+//			2.eval()方法 eval()方法主要担当一个字符串解析器的作用，
+//			他只接受一个参数，而这个参数就是要 执行的 JavaScript 代码的字符串。
+
+			/*eval('var box=100');
+			alert(box);
+			eval('alert(100)');*/
+			
+			//alert(Array);
+			
+//			二．Math Math Math Math对象 ECMAScript
+//			还为保存数学公式和信息提供了一个对象，即 Math 对象。
+//			与我们在 JavaScript 直接编写计算功能相比，Math 对象提供的计算功能执行起来要快得多。
+			
+			/*alert(Math.E);
+			alert(Math.LN10);
+			alert(Math.LN2);
+			alert(Math.LOG2E);
+			alert(Math.LOG10E);
+			alert(Math.PI);
+			alert(Math.SQRT1_2);
+			alert(Math.SQRT2);
+*/
+			/*alert(Math.min(2,4,5,3,5,6,0));
+			alert(Math.max(2,4,5,3,5,6,0));
+			*/
+			
+//			alert(Math.ceil(2.4));
+//			alert(Math.ceil(2.6));
+//			alert(Math.floor(2.1));
+//			alert(Math.floor(2.7));
+
+			alert(Math.round(2.2));
+			alert(Math.round(2.6));
+			
+		</script>
+	</body>
+</html>
