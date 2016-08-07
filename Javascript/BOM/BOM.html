@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="GB2312">
+		<title></title>
+	</head>
+	<body>
+		<script>
+//			BOM 也叫浏览器对象模型，它提供了很多对象，用于访问浏览器的功能。
+//			BOM 缺少 规范，每个浏览器提供商又按照自己想法去扩展它，
+//			那么浏览器共有对象就成了事实的标准。
+//			所以，BOM 本身是没有标准的或者还没有哪个组织去标准它。
+			
+			//一 window对象
+//			BOM 的核心对象是 window，它表示浏览器的一个实例。
+//			window 对象处于 JavaScript 结 构的最顶层，
+//			对于每个打开的窗口，系统都会自动为其定义 window 对象。
+			
+			//1 对象的属性和方法
+			//window对象有一系列的属性,这些属性本身也是对象.
+			/**
+			 * closed 当窗口关闭时为真
+			 * defaultStatus 窗口底部状态栏显示的默认状态消息
+			 * document 窗口中当前显示的文档对象
+			 * frames 窗口中的框架对象数组
+			 * history 保存有窗口最近加载的URL
+			 * length 窗口中的框架数
+			 * location 当前窗口的URL
+			 * name 窗口名
+			 * offscreenBuffering 用于绘制新窗口内容并在完成后复制已存在的内容，控制屏幕更新
+			 * opener 打开当前窗口的窗口
+			 * parent 指向包含另一个窗口的窗口（由框架使用)
+			 * screen 显示屏幕相关信息，如高度，宽度
+			 * self 指示当前窗口
+			 * status 描述由用户交互导致的状态栏的临时消息
+			 * top 包含特定窗口的最顶层窗口
+			 * window 指示当前窗口，与self等效
+			 */
+			
+			//	window对象的方法
+			
+			/**
+			 * alert(text)  创建一个警告对话框，显示一条消息
+			 * blur()	将焦点从窗口移除
+			 * clearInterval(interval)	清除之前设置的定时器间隔
+			 * clearTimeOut(timer) 清除之前设置的超市
+			 * close()	关闭窗口
+			 * confirm()	创建一个需要用户确认的对话框
+			 * focus()	将焦点移至窗口
+			 * open(url,name,[options])	打开一个新窗口并返回新window对象
+			 * prompt(text,defaultInput)	创建一个对话框要求用户输入信息
+			 * scroll(x,y)	在窗口中滚动到一个像素点的位置
+			 * setInterval(expression,milliseconds)	//经过指定时间间隔计算一个表达式
+			 * setInterval(function,milliseconds,[arguments])	经过指定时间间隔后调用一个函数
+			 * setTimeout(expression,milliseconds)	在定时器超过后计算一个表达式
+			 * setTimeout(function,milliseconds,[arguments])	在定时器超过后计算一个函数
+			 * print()	调出打印对话框
+			 * find()	调出查找对话框
+			 * 
+			 */
+			
+			//window 下的属性和方法，可以使用 window.属性、window.方法()或者直接属性、方法() 的方式调用。
+			//例如：window.alert()和 alert()是一个意思
+			
+//			2.系统对话框 浏览器通过 alert()、confirm()和 prompt()方法可以调用系统对话框向用户显示信息。
+//			系 统对话框与浏览器中显示的网页没有关系，也不包含 HTML。
+
+			/*//弹出警告
+			alert('Lee');	//直接弹出警告
+			
+			//确定和取消
+			confirm('请确定或者取消');*/
+			
+			/*if(confirm('请确定或者取消')){	//confirm()返回布尔值
+				alert('您按了确定!');	//按确定返回true
+			}else{
+				alert('您按了取消'); 	//按取消返回false
+			}
+			*/
+			
+			/*//输入提示框
+			var num=prompt('请输入一个数字',0);	//两个参数，一个提示，一个值
+			alert(num);	//返回值可以得到
+			
+			//调出打印及查找对话框
+		//	print();
+		//	find();
+			defaultStatus='状态栏默认文本';	//浏览器底部状态栏初始默认值
+			status='状态栏文本';
+			*/
+			
+//			3.新建窗口
+//			使用 window.open()方法可以导航到一个特定的 URL，也可以打开一个新的浏览器窗口。 
+//			它可以接受四个参数：
+//			1.要加载的 URL；
+//			2.窗口的名称或窗口目标；
+//			3.一个特性字符串；
+//			4. 一个表示新页面是否取代浏览器记录中当前加载页面的布尔值。
+			
+			//open('http://www.baidu.com');
+			//open('http://www.baidu.com','baidu');
+			//open('http://www.baidu.com','_parent');
+			
+			
+			//第三字符串参数
+			/**
+			 * width	新窗口的宽度,不能小于100
+			 * height	新窗口的高度，不能小于100
+			 * top 新窗口的Y坐标，不能是负值
+			 * left 新窗口的X坐标，不能是负值
+			 * location 是否在浏览器窗口中显示地址栏，不同浏览器默认值不同
+			 * menubar 是否在浏览器窗口显示菜单栏.
+			 * resizable 是否可以通过拖动浏览器窗口的边框改变大小。默认为no
+			 * scrollbars 如果内容在页面中显示不下，是否允许滚动.默认为no
+			 * status 是否在浏览器窗口中显示状态栏，默认为no
+			 * toolbar 是否在浏览器窗口中显示工具栏，默认为no
+			 * fullscreen 浏览器窗口是否最大化，仅限IE
+			 */
+			
+			/*open(
+				'http://www.baidu.com',
+				'baidu',
+				'width=200,height=200,top=200,left=200,location=yes,menubar=yes,status=yes,toolbar=yes'
+			);
+			*/
+			
+			//子窗口操作父窗口
+			/*document.onclick=function(){
+				opener.document.write('子窗口让我输出的');
+			}
+			*/
+			
+			
+//			3.窗口的位置和大小 用来确定和修改 window 对象位置的属性和方法有很多。
+//			IE、Safari、Opera 和 Chrome 都提供了 screenLeft 和 screenTop 属性，
+//			分别用于表示窗口相对于屏幕左边和上边的位置。
+//			Firefox 则在 screenX 和 screenY 属性中提供相同的窗口位置信息，
+//			Safari 和 Chrome 也同时 支持这两个属性。
+
+			/*//确定窗口的位置，IE支持
+			alert(screenLeft);
+			alert(screenTop);
+			alert(typeof screenLeft);
+			
+			//确定窗口的位置，Firefox支持
+			alert(screenX);
+			alert(screenY);
+			*/
+			
+//			screenX 属性 IE 浏览器不认识，直接 alert(screenX)，
+//			screenX 会当作一个为声明的 变量，导致不执行。
+//			那么必须将它将至为 window 属性才能显示为初始化变量应有的值，
+//			所 以应该写成：alert(window.screenX)。
+
+			//跨浏览器的方法
+			/*var leftX=(typeof screenLeft=='number')?screenLeft:screenX;
+			var topY=(typeof screenTop=='number')?screenTop:screenY;
+			alert(leftX);
+			alert(topY);
+			*/
+			
+//			窗口页面大小，Firefox、Safari、Opera 和 Chrome 均为此提供了 4 个属性：
+//			innerWidth 和 innerHeight，返回浏览器窗口本身的尺寸；
+//			outerWidth 和 outerHeight，返回浏览器窗口本 身及边框的尺寸。
+
+/*			alert(innerWidth);
+			alert(innerHeight);
+			
+			alert(outerWidth);
+			alert(outerHeight);
+			*/
+			
+			/*alert(document.documentElement.clientLeft);
+			alert(document.documentElement.clientHeight);
+			
+			alert(document.body.clientLeft);
+			alert(document.body.clientHeight);*/
+			
+			/*4.间歇调用和超时调用 JavaScript 是单线程语言，
+			但它允许通过设置超时值和间歇时间值来调度代码在特定的 时刻执行。
+			前者在指定的时间过后执行代码，而后者则是每隔指定的时间就执行一次代码。
+			超时调用需要使用 window 对象的 setTimeout()方法，
+			它接受两个参数：要执行的代码 和毫秒数的超时时间。*/
+			
+//			调用 setTimeout()之后，该方法会返回一个数值 ID，表示超时调用。
+//			这个超时调用的 ID 是计划执行代码的唯一标识符，可以通过它来取消超时调用。
+//			要取消尚未执行的超时调用计划，可以调用 clearTimeout()方法并将相应的超时调用 ID 作为参数传递给它。
+			
+			/*var box=setTimeout(function(){
+				alert('Lee');
+			},1000);
+			clearTimeout(box);*/
+			
+//			间歇调用与超时调用类似，只不过它会按照指定的时间间隔重复执行代码，
+//			直至间歇调 用被取消或者页面被卸载。
+//			设置间歇调用的方法是 setInterval()，它接受的参数与 setTimeout()
+//			相同：要执行的代码和每次执行之前需要等待的毫秒数。
+			 
+			/*var box=setInterval(function(){
+				alert('Brozer');
+			},1000);
+			
+			setTimeout(function(){
+				clearInterval(box);
+			},5000)
+			*/
+			
+//			一般认为，使用超时调用来模拟间歇调用是一种最佳模式。
+//			在开发环境下，很少使用真 正的间歇调用，因为需要根据情况来取消 ID，
+//			并且可能造成同步的一些问题，我们建议不 使用间歇调用，而去使用超时调用。
+			
+			/*var num=0;
+			var max=5;
+			function box(){
+				num++;
+				if(num==max){
+					alert('5秒后结束');
+				}else{
+					setTimeout(box,1000);
+				}
+			}
+			setTimeout(box,1000);
+			*/
+			
+			//在使用超时调用时，没必要跟踪超时调用 ID，
+			//因为每次执行代码之后，如果不再 设置另一次超时调用，调用就会自行停止。
+			
+//			location对象 
+//			location 是 BOM 对象之一，它提供了与当前窗口中加载的文档有关的信息，
+//			还提供了 一些导航功能。事实上，location 对象是 window 对象的属性，
+//			也是 document 对象的属性； 所以 window.location 和 document.location 等效。
+
+//			alert(location);
+//			alert(location.host);
+//			alert(location.hostname);
+//			alert(location.href);
+//			alert(location.port);
+//			alert(location.protocol);
+			//location.assign("http://www.baidu.com");
+			/*location.reload(true);
+			location.replace("http://www.baidu.com");
+			*/
+			
+//			在 Web 开发中，我们经常需要获取诸如?id=5&search=ok 这种类型的 URL 的键值对，
+//			那么通过 location，我们可以写一个函数，来一一获取。
+			
+			/*function getArgs(){
+				var arr=[];
+				//去掉？号
+				var href=location.search.length>0?location.search.substring(1):'';
+				var items=href.split('&');
+				var item=null,name=null,value=null;
+				for(var i=0;i<items.length;i++){
+					item=items[i].split('=');
+					name=item[0];
+					value=item[1];
+					//把键值对存放到数组中去
+					arr[name]=value;
+				}
+				return arr;
+				
+			}
+			var args=getArgs();
+			alert(args['id']);
+			alert(args['search']);*/
+
+			/*三history对象 
+			history 对象是 window 对象的属性，它保存着用户上网的记录，从窗口被打开的那一刻 算起。*/
+			//history对象的属性及方法
+			/**
+			 * length	history对象中的记录数
+			 * 
+			 * back() 前往浏览器历史条目前一个URL，类似后退
+			 * forward() 前往浏览器历史条目下一个URL，类似前进
+			 * go(num) 浏览器在history对象中向前或向后
+			 * 
+			 */
+			
+			function back(){
+				history.back();
+			}
+			
+			function forward(){
+				history.forward();
+			}
+			
+			function go(num){
+				history.go(num);
+			}
+
+		</script>
+	</body>
+</html>
