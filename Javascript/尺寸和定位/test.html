@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="GB2312">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+		</style>
+		<script type="text/javascript">
+		/**
+		 * DOM元素尺寸大小与位置总结
+		 * 1	offsetWidth，offsetHeight: 用于描述元素外尺寸。指元素内容+内边距+边框，不包括外边距和滚动条部分
+		 * 
+		 * 2	clientWidth,clientHeight:	用于描述元素内尺寸。是指元素内容+内边距大小，不包括边框、外边框、滚动条部分。
+		 * 
+		 * 3	clientTop,clientLeft:	返回边框尺寸大小。
+		 * 
+		 * 4	offsetTop,offsetLeft:	返回该元素的左上角（边框外边缘)与已定位的父容器的边框外边缘距离尺寸大小
+		 * 
+		 * 5	document.body.scrollTop:	网页被卷去的高
+		 * 
+		 * 6	document.body.scrollLeft:	网页被卷去的宽
+		 * 
+		 * 7 	document.body.clientWidth:	页面可见区域的宽
+		 * 
+		 * 8	document.body.offsetWidth:	页面可见区域的宽（包含边线的宽）
+		 * 
+		 * 9	window.screen.height:	屏幕辨别率的高
+		 * 
+		 * 10	window.screen.width:	屏幕辨别率的宽
+		 * 
+		 *
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+			window.onload=function(){
+				var divParent=document.getElementById('divParent');
+				var divDisplay=document.getElementById('divDisplay');
+				var scrollTop=document.getElementById('scrollTop');
+				var windowProperties=document.getElementById('windowProperties');
+				var webpage=document.getElementById('webpage');
+				
+				divParent.onscroll=function(){
+					//scrollTop.innerText=divDisplay.scrollHeight+'px'+"==="+divDisplay.scrollHeight+"  "+divParent.scrollTop+" "+divParent.scrollLeft;
+					//alert(1);
+					//windowProperties.innerText='window.screen.height:'+window.screen.height+'window.screen.width:'+window.screen.width+'window.screen.availHeight:'+window.screen.availHeight;
+					webpage.innerText='document.body.clientWidth: '+document.body.clientWidth+'document.body.clientHeight: '+document.body.clientHeight+
+					'document.body.offsetWidth: '+document.body.offsetWidth+'document.body.offsetHeight: '+document.body.offsetHeight;
+					
+				};
+			 
+			};
+		</script>
+	</head>
+	<body>
+		<div id="divParent" style="background-color: #aaa;padding:8px;border: solid 7px #000;
+			height: 200px; width: 500px; overflow: auto;
+			">
+			<div id="divDisplay" style="background-color: #0f0;margin: 30px;padding: 10px;
+				height: 400px; width: 200px; border: solid 3px #f00;
+				">
+				
+			</div>
+		</div>
+		<div id="scrollTop"></div>
+		<div id="windowProperties"></div>
+		<div id="webpage"></div>
+		<script type="text/javascript">
+			(function(){ 
+				var divDisplay=document.getElementById('divDisplay');
+				document.writeln('offsetWidth: '+divDisplay.offsetWidth+'<br />');
+				document.writeln('offsetHeight: '+divDisplay.offsetHeight+'<br />');
+				document.writeln('clientWidth: '+divDisplay.clientWidth+'<br />');
+				document.writeln('clientHeight: '+divDisplay.clientHeight+'<br />');
+				document.writeln('clientTop: '+divDisplay.clientTop+'<br />');
+				document.writeln('clientLef: '+divDisplay.clientLeft+'<br />');
+				document.writeln('offsetTop: '+divDisplay.offsetTop);
+				
+			})();
+		</script>
+	</body>
+</html>
