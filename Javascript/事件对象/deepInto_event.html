@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="GB2312">
+		<title></title>
+		<script type="text/javascript">
+			/*W3C的现代事件绑定比我们自定义的好处就是：
+			1.不需要自定义了；
+			2.可以屏蔽相同的函数；
+			3.可以设置冒泡和捕获。*/
+		
+		
+		
+			/*window.addEventListener('load',init,false);//1 事件名，2事件处理函数,3 true表示事件捕获，false表示事件冒泡
+			window.addEventListener('load',init,false);
+			function init(){
+				alert('Hello');
+			}*/
+			
+			
+			//事件切换
+			/*window.addEventListener('load',function(){
+				var image1=document.getElementById('image1');
+				image1.addEventListener('click',function(){
+					alert('Hello');
+					
+				},false);
+				image1.addEventListener('click',toBlue,false);
+				
+			},false);
+			*/
+			/*function toRed(){
+				this.src='QQ图片20131107132118.jpg';
+				this.removeEventListener('click',toRed,false);
+				this.addEventListener('click',toBlue,false);
+			}
+			
+			function toBlue(){
+				this.src='IMG20150211004.jpg';
+				this.removeEventListener('click',toBlue,false);
+				this.addEventListener('click',toRed,false);
+			}*/
+			
+			/*document.getElementsByTagName('a')[0].onclick=function(){
+				alert('Hello');
+				return false;
+			};*/
+			
+			
+			/*三．IE事件处理函数
+			IE实现了与DOM中类似的两个方法：
+			attachEvent()和detachEvent()。这两个方法接受相同的参数：事件名称和函数。
+			
+			在使用这两组函数的时候，先把区别说一下：
+			1.IE不支持捕获，只支持冒泡；
+			2.IE添加事件不能屏蔽重复的函数；
+			3.IE中的this指向的是window而不是DOM对象。4.
+			在传统事件上，IE是无法接受到event对象的，但使用了attchEvent()却可以，但有些区别。*/
+			/*window.attachEvent('onload',function(){
+				var image1=document.getElementById('image1');
+				image1.attachEvent('onclick',toBlue);
+			});
+			c
+			
+			function toRed(){
+				var that=window.event.srcElement;
+				that.src='QQ图片20131107132118.jpg';
+				that.detachEvent('onclick',toRed);
+				that.attachEvent('onclick',toBlue);
+			}
+			
+			function toBlue(){
+				var that=window.event.srcElement;
+				that.src='IMG20150211004.jpg';
+				that.detachEvent('onclick',toBlue);
+				that.attachEvent('onclick',toRed);
+			}
+			
+			
+			window.onclick=function(){
+				alert("window.onclick is triggered");
+			};*/
+			
+			
+			/*window.addEventListener('contextmenu',function(ev){
+				ev.preventDefault();	//阻止鼠标右击事件的菜单栏
+				var box=document.getElementById('box');
+				box.style.display="block";
+				
+			},false);
+			*/
+			
+			console.error('错误!');
+			console.log('日志');
+			
+			var num1=1;
+			console.log(typeof num1);
+			
+			var num2='b';
+			console.log(typeof num2);
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<img id="image1" src="IMG20150211004.jpg" />
+		<a id="k" href="http://www.baidu.com">百度一下，你就知道。</a>
+		<div id="box"></div>
+	</body>
+</html>

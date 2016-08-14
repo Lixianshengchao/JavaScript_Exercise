@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="GB2312">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+/*			一．事件对象
+事件处理函数的一个标准特性是，以某些方式访问的事件对象包含有关于当前事件的上下文信息。
+事件处理三部分组成：对象.事件处理函数=函数。例如：单击文档任意处。*/
+
+		/*document.onclick=function(){
+			alert('I am studying javascript');
+			
+		};*/
+			
+		/*function box(){
+			alert('my name is BROZER');
+		}
+		
+		document.onclick=box;
+		*/
+		
+		
+		/*window.onload=function(){
+			var input=document.getElementsByTagName('input')[0]
+			input.onclick=function(){
+				alert(this.value);
+			};
+					
+		};
+		*/
+		
+		
+		/*从上面的拆分，我们并没有发现本章的重点：事件对象。
+		那么事件对象是什么？它在哪里呢？当触发某个事件时，会产生一个事件对象，
+		这个对象包含着所有与事件有关的信息。
+		包括导致事件的元素、事件的类型、以及其它与特定事件相关的信息。
+		事件对象，我们一般称作为event对象，
+		这个对象是浏览器通过函数把这个对象作为参数传递过来的。
+		那么首先，我们就必须验证一下，在执行函数中没有传递参数，是否可以得到隐藏的参数。*/
+		
+		/*function box(){
+			alert(arguments.length);
+		}
+		//box();
+		window.onload=function(){
+			alert(arguments.length);
+			
+		};
+		*/
+		
+		/*通过上面两组函数中，我们发现，通过事件绑定的执行函数是可以得到一个隐藏参数的。
+		说明，浏览器会自动分配一个参数，这个参数其实就是event对象。*/
+		
+		/*window.onload=function(){
+			
+			alert(arguments[0]);
+			var input=document.getElementsByTagName('input')[0];
+			input.onclick=function(){
+				alert('INPUT.ONCLICK ELEMENT'+arguments[0]);
+			};
+		};
+		*/
+		
+		/*直接接收event对象，是W3C的做法，IE不支持，IE自己定义了一个event对象，
+		直接在window.event获取即可。*/
+		
+		/*window.onload=function(){
+			var input=document.getElementsByTagName('input')[0];
+			input.onclick=function(event){
+				var e=event||window.event;
+				alert(e.clientX+": "+e.clientY);
+			};
+		};
+		*/
+		
+		window.onmousedown=function(evt){
+			
+			/*var event=evt||window.event;
+			if(evt){
+				switch(evt.button){
+					case 0:alert('表示主鼠标按钮');break;
+					
+					case 1:alert('表示中间的鼠标按钮');break;
+					
+					case 2:alert('表示次鼠标按钮');
+					
+					
+				}
+			}
+			
+			if(window.event){
+				switch(window.event.button){
+					case 1:alert('表示主鼠标按钮');break;
+					
+					case 2:alert('表示次鼠标按钮');break;
+					
+					case 4:alert('表示中间的鼠标按钮');
+					
+					
+				}
+				
+			}*/
+			
+			/**
+			 * 可视区及屏幕坐标
+			 * 事件对象提供了两组来获取浏览器坐标的属性，一组是页面可视区左边，另一组是屏幕坐标。
+			 * clientX	可视区X坐标，距离左边框的位置
+			 * clientY	可视区Y坐标，距离上边框的位置
+			 * screenX	屏幕区X坐标，距离左屏幕的位置
+			 * screenY	屏幕区Y坐标，距离上屏幕的位置
+			 */
+			
+			
+			/*document.onclick=function(evt){
+				var e=evt||window.event;
+				alert(e.clientX+","+e.clientY+'<br/>'+e.screenX+','+e.screenY);
+			};*/
+			
+			
+			/*3.修改键
+			有时，我们需要通过键盘上的某些键来配合鼠标来触发一些特殊的事件。
+			这些键为：Shfit、Ctrl、Alt和Meat(Windows中就是Windows键，苹果机中是Cmd键)，
+			它们经常被用来修改鼠标事件和行为，所以叫修改键。*/
+			
+			/*function getKey(evt){
+				var e=evt||window.event;
+							
+				return e.keyCode;
+			}
+			
+			document.onkeydown=function(event){
+				alert(getKey(event));
+			};*/
+			
+			
+			/**．
+			 * W3C与IE
+			 * 在标准的DOM事件中，event对象包含与创建它的特定事件有关的属性和方法。
+			 *	触发的事件类型不一样，可用的属性和方法也不一
+			 * 
+			 * W3C中event对象的属性和方法
+			 * 
+			 * W3C中的属性均为只读属性，不可更改
+			 * 
+			 * bubbles	Boolean	表明事件是否冒泡
+			 * cancelable   Boolean	表明是否可以取消事件的默认行为
+			 * preventDefault() Function 取消事件的默认行为。如果cancelable为true，则可以使用这个方法
+			 * stopPropagation()	Function	取消事件的进一步捕获或冒泡。如果bubbles为true，则可以使用这个方法
+			 * target	Element	事件的目标
+			 * 
+			 * IE中event对象的属性
+			 * cancelBubble	Boolean	默认值为false，但将其设置为true就可以取消事件冒泡
+			 * returnValue	Boolean 默认值为true,但将其设置为false就可以取消事件的默认行为
+			 * srcElement	Element	事件的目标
+			 * type	String	被触发的事件类型
+			 * 
+			 * 
+			*/
+			
+			/*在这里，我们只看所有浏览器都兼容的属性或方法。
+			首先第一个我们了解一下W3C中的target和IE中的srcElement，都表示事件的目标。*/
+			
+			/*
+			事件流
+			事件流是描述的从页面接受事件的顺序，当几个都具有事件的元素层叠在一起的时候，
+			那么你点击其中一个元素，并不是只有当前被点击的元素会触发事件，
+			而层叠在你点击范围的所有元素都会触发事件。事件流包括两种模式：冒泡和捕获。
+
+			事件冒泡，是从里往外逐个触发。
+			事件捕获，是从外往里逐个触发。那么现代的浏览器默认情况下都是冒泡模型，
+			而捕获模式则是早期的Netscape默认情况。
+			而现在的浏览器要使用DOM2级模型的事件绑定机制才能手动定义事件流模式。
+*/
+			
+			function getTarget(evt){
+				var e=evt||window.event;
+				window.event?e.cancelBubble=true:e.stopPropagation();//在阻止冒泡过程中，W3C和IE采用不同的方法，我们采用兼容；
+				return e.target||e.srcElement
+			}
+			
+			window.onclick=function(evt){
+				var target=getTarget(evt);
+				alert(target+'window');
+			};
+			
+			document.onclick=function(evt){
+				var target=getTarget(evt);
+				alert(target+'document');
+			};
+			
+			document.getElementsByTagName('input')[0].onclick=function(evt){
+				var target=getTarget(evt);
+				alert(target+'input');
+			};
+			
+			
+			
+			
+		};
+		
+		</script>
+		
+		<input type="text" value="welcome come to back" />
+	</body>
+</html>
